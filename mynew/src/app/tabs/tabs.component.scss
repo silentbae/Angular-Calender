@@ -1,0 +1,14 @@
+.mat-form-field {
+    margin-top: 16px;
+  }
+
+
+mat-form-field{
+    display: flex;
+    flex-direction: column;    
+}
+.next-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}

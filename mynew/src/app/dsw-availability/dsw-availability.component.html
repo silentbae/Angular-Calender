@@ -1,0 +1,232 @@
+
+<div class="container-fluid">
+    <form  [formGroup]=" dswAvailabilityForm">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStartDate placeholder="Start date" formControlName="fromDate">
+                          <input matEndDate placeholder="End date" formControlName="endDate">
+                        </mat-date-range-input>
+                        
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                      </mat-form-field>
+                        <!-- <mat-form-field class="full-width">
+                            <input matInput [matDatepicker]="picker" (focus)="picker.open()" placeholder="From" formControlName="fromDate"  (dateChange)="date()" autocomplete="off">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker ngDefaultControl></mat-datepicker>
+                        </mat-form-field> -->
+                </div>
+                <!-- <div class="col-md-6">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="To" formControlName="endDate" readonly>
+                    </mat-form-field>
+                    <input type="hidden" formControlName="dswAvailibilityId">
+                </div> -->
+            </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="table displayLarge mt-3">
+                    <div class="tableRow tableHeading">
+                    <div class="tableCell">&nbsp;</div>
+                    <div class="tableCell">DAY</div>
+                    <div class="tableCell">AFTERNOON</div>
+                    <div class="tableCell">NIGHT</div>
+                    <div class="tableCell">SLEEPOVER</div>
+                </div>
+                <div class="tableRow">
+                    <div class="tableCell">SUN</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="sunDay"  class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="sunDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="sunDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="sunDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+                <div class="tableRow">
+                    <div class="tableCell">MON</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="monDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="monDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="monDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="monDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+                <div class="tableRow">
+                    <div class="tableCell">TUE</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="tueDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="tueDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="tueDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="tueDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+                <div class="tableRow">
+                    <div class="tableCell">WED</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="wedDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="wedDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="wedDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="wedDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+                <div class="tableRow">
+                    <div class="tableCell">THU</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="thuDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="thuDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="thuDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="thuDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+                <div class="tableRow">
+                    <div class="tableCell">FRI</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="friDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="friDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="friDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="friDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+
+                <div class="tableRow">
+                    <div class="tableCell">SAT</div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="satDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="satDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="satDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                    <div class="tableCell text-center">
+                        <mat-checkbox formControlName="satDay" class="example-margin" (change)="hideMsg($event)">
+                        </mat-checkbox>
+                    </div>
+                </div>
+            
+            </div> 
+            <div class="col-md-4 style">
+                <!-- calander here -->
+                <div class="col-md-12 col-lg-12 mb-4 paddingMobile0" >
+                    <div class="row text-center">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-2 ">
+                            <div class="btn-group">
+                                    <div class="btn btnOrange previousBtn displayNoneMob" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                        Previous
+                                    </div>
+                                <div class=" displayNoneLarge" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                    <i class="fas fa-chevron-left "></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-8 calendarText  text-center">
+                            {{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-2">
+                            <div class="btn-group">
+                                <div class="btn btnOrange displayNoneMob" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                    Next
+                                </div>
+                                <div class="displayNoneLarge" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
+                                    <i class="fas fa-chevron-right "></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div [ngSwitch]="view">
+                        <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events" [refresh]="refresh">
+                        </mwl-calendar-month-view>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div  class="col-md-12 text-right  ">
+                        <button mat-raised-button color="accent" (click)="onSubmit()" class="btn btnOrange  btn-space">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+
+
+<div>
+    <app-tabs></app-tabs>
+</div>
+
+

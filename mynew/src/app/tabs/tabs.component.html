@@ -1,0 +1,73 @@
+<mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup"  class="form-field" >
+        <ng-template matStepLabel>Fill out your personal details</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label> 
+          <input matInput placeholder="First name" formControlName="firstCtrl_1" >
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last name" formControlName="secondCtrl_2" >
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="thirdCtrl_3" >
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="formFiled">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number" formControlName="fourthCtrl_4" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="formFiled">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="fivthCtrl_5" required>
+        </mat-form-field>
+        <div class="next-btn">
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" >
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your qualification</ng-template>
+        <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label> 
+            <input matInput placeholder="First name" formControlName="firstCtrl_2" >
+        </mat-form-field>
+            <div *ngFor ="let obj of dataarray; let i = index">
+                <div>
+                    <label>Qualification</label>
+                    <input type="tel" class="form-control" name="number{{i}}" [(ngModel)]="obj.Number" formControlName="secondCtrl_">
+                    <span (click)="removeForm(i)"  class="w3-button w3-xlarge w3-circle w3-red w3-card-4">-</span>
+                </div>
+            </div>
+            <span (click)="addForm()"class="w3-button w3-xlarge w3-circle w3-teal">+</span><br><br>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" >
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="thirdCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
