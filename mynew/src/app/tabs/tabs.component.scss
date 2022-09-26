@@ -1,14 +1,22 @@
-.mat-form-field {
-    margin-top: 16px;
-  }
-
-
 mat-form-field{
     display: flex;
-    flex-direction: column;    
+    justify-content: stretch;
+    flex-direction: column;
+    margin-top: 16px;
+    
 }
 .next-btn{
     display: flex;
     align-items: flex-end;
-    justify-content: end;
+    justify-content: flex-end;
+}
+.contact-field{
+    display: flex;
+    align-items: flex-start;
+}
+.mat-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,73 +1,167 @@
-<mat-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup"  class="form-field" >
-        <ng-template matStepLabel>Fill out your personal details</ng-template>
+
+
+<!-- TAB ONE -->
+
+
+
+<mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Fill the  required field.">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your  details</ng-template>
         <mat-form-field appearance="fill">
-          <mat-label>First Name</mat-label> 
-          <input matInput placeholder="First name" formControlName="firstCtrl_1" >
+          <mat-label>Firstname</mat-label>
+          <input matInput placeholder="First name" formControlName="personaldt_firstCtrl" >
         </mat-form-field>
-        <mat-form-field appearance="fill" >
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Last name" formControlName="secondCtrl_2" >
+        <mat-form-field appearance="fill">
+            <mat-label>Lastname</mat-label>
+            <input matInput placeholder="Last name" formControlName="personaldt_secondCtrl" >
         </mat-form-field>
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill">
             <mat-label>Address</mat-label>
-            <input matInput placeholder="Address" formControlName="thirdCtrl_3" >
+            <input matInput placeholder="Address" formControlName="personaldt_thirdCtrl">
         </mat-form-field>
-        <mat-form-field appearance="fill" class="formFiled">
-            <mat-label>Phone Number</mat-label>
-            <input matInput placeholder="Phone Number" formControlName="fourthCtrl_4" required>
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="formFiled">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" formControlName="fivthCtrl_5" required>
-        </mat-form-field>
+        <div *ngFor ="let obj of contact_Array; let i = index" >
+          <mat-form-field appearance="fill">
+              <mat-label>Phone</mat-label>
+              <input matInput placeholder="Phone" formControlName="personaldt_fourthCtrl"  required>
+  
+          </mat-form-field>
+          <!-- <span (click)="removeForm(i)"  class="w3-button w3-xlarge w3-circle w3-red w3-card-4">-</span> -->
+          <!-- <span (click)="addForm()"class="w3-button w3-xlarge w3-circle w3-teal">+</span><br><br> -->
+          <div class="mat-icons" >
+              <mat-icon (click)="add_Contact()" class="mat-addicon">add_circle</mat-icon>
+              <mat-icon  (click)="remove_Contact(i)" class="mat-remicon" >clear</mat-icon>
+          </div>
+          <!-- <mat-icon (click)="addForm()" class="mat-addicon">add_circle</mat-icon>
+          <mat-icon  (click)="removeForm(i)" class="mat-remicon" >clear</mat-icon> -->
+        </div>
+          <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="personaldt_fivthCtrl"  required>
+          </mat-form-field>
         <div class="next-btn">
-          <button mat-button matStepperNext >Next</button>
+          <button mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" >
+
+
+<!-- TAB ONE END -->
+
+
+
+<!-- TAB TWO -->
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Fill the  required field.">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your qualification</ng-template>
-        <mat-form-field appearance="fill">
-            <mat-label>First Name</mat-label> 
-            <input matInput placeholder="First name" formControlName="firstCtrl_2" >
-        </mat-form-field>
-            <div *ngFor ="let obj of dataarray; let i = index">
-                <div>
-                    <label>Qualification</label>
-                    <input type="tel" class="form-control" name="number{{i}}" [(ngModel)]="obj.Number" formControlName="secondCtrl_">
-                    <span (click)="removeForm(i)"  class="w3-button w3-xlarge w3-circle w3-red w3-card-4">-</span>
-                </div>
+        <ng-template matStepLabel>Fill out your qualifications</ng-template>
+         <div *ngFor ="let obj of qualifications_Array; let i = index" >
+           <div [(ngModel)]="obj.Number" [ngModelOptions]="{standalone: true}" ngDefaultControl>
+            <mat-form-field appearance="fill">
+              <mat-label>Select your qualification</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name=" qualification" formControlName="qualdt_fourthCtrl" >
+                <mat-option *ngFor="let qualification of  qualifications" [value]=" qualification.value">
+                  {{qualification.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Percentage" formControlName="qualdt_fivthCtrl"  required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Year" formControlName="qualdt_sixthCtrl"  required>
+            </mat-form-field>
+            <div class="mat-icons" >
+              <mat-icon (click)="add_qualification()" class="mat-addicon">add_circle</mat-icon>
+               <mat-icon  (click)="remove_qualification(i)" class="mat-remicon" >clear</mat-icon> 
             </div>
-            <span (click)="addForm()"class="w3-button w3-xlarge w3-circle w3-teal">+</span><br><br>
-        <div>
+          </div> 
+        </div> 
+        <div class="next-btn">
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="thirdFormGroup" >
-        <form [formGroup]="thirdFormGroup">
-          <ng-template matStepLabel>Fill out your address</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput formControlName="thirdCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                   required>
+
+
+<!-- TAB TWO END -->
+
+
+
+
+
+<!-- TAB THREE -->
+
+
+    <mat-step [stepControl]="thirdFormGroup" errorMessage="Fill the  required field.">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Fill out your history</ng-template>
+        <div *ngFor ="let obj of workhistory_Array; let i = index" >
+           <mat-form-field>
+             <input matInput placeholder="Company Name" formControlName="whdt_fivthCtrl"  required>
+           </mat-form-field>
+           <mat-form-field>
+            <input matInput placeholder="Position" formControlName="whdt_sixthCtrl"  required>
           </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
+          <mat-form-field>
+            <input matInput placeholder="From" formControlName="whdt_seventhCtrl"  required>
+          </mat-form-field>
+           <mat-form-field>
+             <input matInput placeholder="To" formControlName="whdt_eightCtrl"  required>
+           </mat-form-field>
+           <div class="mat-icons" >
+            <ng-template matStepLabel>MORE</ng-template>
+             <mat-icon (click)="add_workhistory()" class="mat-addicon">add_circle</mat-icon>
+              <mat-icon  (click)="remove_workhistory(i)" class="mat-remicon" >clear</mat-icon> 
+         </div> 
+       </div> 
+       <div class="next-btn">
+         <button mat-button matStepperPrevious>Back</button>
+         <button mat-button matStepperNext>Next</button>
+       </div>
+      </form>
+    </mat-step>
+
+
+<!-- TAB THREE END -->
+
+
+
+
+
+<!-- TAB FOUR -->
+
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <p>You are now done.</p>
-      <div>
+      <div class="next-btn">
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="onSubmit()">Submit</button>
       </div>
     </mat-step>
   </mat-stepper>
+
+
+
+  <!-- TAB FOUR END -->
+
+
+
+
+
+
+
+
+
+
+
+
+King Khaled Eye Specialist Hospital 2775
+AlUrunbah Road
+Umm AlHamam Gharbi Unit 2
+Riyadh 12329-8139 Kingdom Of Saudi Arabia
+ 
+ 
+Email: info@kkesh.med.sa
+Phone: 966114821908

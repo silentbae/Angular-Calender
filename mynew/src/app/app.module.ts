@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';  
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DswAvailabilityComponent } from './dsw-availability/dsw-availability.component';
@@ -19,18 +18,24 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
-import { TabsComponent } from './tabs/tabs.component';
 // import { MomentUtcDateAdapter } from './moment-utc-date-adapter';
 import {MatTabsModule,} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import { TabsComponent } from './tabs/tabs.component'
+import {MatSelectModule} from '@angular/material/select';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DswAvailabilityComponent,
-    TabsComponent
+    TabsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,10 @@ import { FormsModule } from '@angular/forms';
     MatTabsModule,
     MatStepperModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatSelectModule
+    
     
     
     
