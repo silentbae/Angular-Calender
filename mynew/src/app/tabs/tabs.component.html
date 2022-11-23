@@ -134,7 +134,10 @@
 
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <input type="checkbox" name="agree" id="agree" value="yes" />
+      <label for="agree">I agree to the terms and conditions</label>
+
+
       <div class="next-btn">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="onSubmit()">Submit</button>
@@ -156,12 +159,3 @@
 
 
 
-
-King Khaled Eye Specialist Hospital 2775
-AlUrunbah Road
-Umm AlHamam Gharbi Unit 2
-Riyadh 12329-8139 Kingdom Of Saudi Arabia
- 
- 
-Email: info@kkesh.med.sa
-Phone: 966114821908

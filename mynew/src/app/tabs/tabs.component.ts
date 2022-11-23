@@ -25,7 +25,7 @@ interface Quali_fication{
   ],
 })
 export class TabsComponent implements OnInit {
-   firstFormGroup = this._formBuilder.group({
+    firstFormGroup = this._formBuilder.group({
     personaldt_firstCtrl:new FormControl('', Validators.required),
     personaldt_secondCtrl:new FormControl('', Validators.required),
     personaldt_thirdCtrl:new FormControl('', Validators.required),
@@ -64,6 +64,10 @@ export class TabsComponent implements OnInit {
   Workhistory = new Workhistory;
   workhistory_Array :any=[];
   selectedValue: string | undefined;
+  data :any=[];
+
+
+
   // qualifications: string[] = ['10th', 'plustwo', 'BTECH', 'BBA', 'BCA', 'B.COM','B.sc'];
   qualifications: Quali_fication[] = [
     {value: '10th', viewValue: '10th'},
@@ -112,7 +116,13 @@ export class TabsComponent implements OnInit {
     this.workhistory_Array.splice(index);
   }
   onSubmit(){
-    console.log("submitted")
+    this.data.push(this.workhistory_Array)
+    this.firstFormGroup
+    console.log("clicked")
+    console.log(this.data)
+    console.log(this.firstFormGroup.value)
+    console.log(this.secondFormGroup.value)
+    console.log(this.thirdFormGroup.value)
   }
 
 }
